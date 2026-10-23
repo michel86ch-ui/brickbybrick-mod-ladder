@@ -7,6 +7,18 @@ world and save slot, with or without other mods.
 > Steam leaderboard (the mod marks it as practice, because the ladder replaces the mobile scaffold you would otherwise
 > have to unlock).
 
+![The ladder leaning against the wall of a platform, its top over the edge](screenshots/ladder-1.jpg)
+
+*Set up against a wall at 75°, reaching about 0.9 m over its top edge.*
+
+![A long ladder leaning against the platform, the scaffold of a building behind it](screenshots/ladder-2.jpg)
+
+*Extended to its full length.*
+
+![The ladder against a wall being built of 2x1 blocks, under a scaffold, with the message shown after setting it up](screenshots/ladder-3.jpg)
+
+*Building a wall from the ladder; the message at the top appears when it is set up.*
+
 ## Install
 
 1. Download **[ladder-mod.zip](https://github.com/michel86ch-ui/brickbybrick-mod-ladder/raw/main/ladder-mod.zip)**.
