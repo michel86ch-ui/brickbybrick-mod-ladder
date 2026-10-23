@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Ladder</AssemblyName>
+    <RootNamespace>Ladder</RootNamespace>
+    <Version>1.0.0</Version>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <GameDir>C:\Program Files (x86)\Steam\steamapps\common\Brick by Brick Tidy Up the Small Town!\</GameDir>
+    <ManagedDir>$(GameDir)BrickByBrick_Data\Managed\</ManagedDir>
+    <BepInExCore>$(GameDir)BepInEx\core\</BepInExCore>
+    <PluginDir>$(GameDir)BepInEx\plugins\Ladder\</PluginDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony"><HintPath>$(BepInExCore)0Harmony.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="BepInEx"><HintPath>$(BepInExCore)BepInEx.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(ManagedDir)UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(ManagedDir)UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.PhysicsModule"><HintPath>$(ManagedDir)UnityEngine.PhysicsModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(ManagedDir)UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(ManagedDir)UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="InitArgs"><HintPath>$(ManagedDir)InitArgs.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="InitArgs.Netcode"><HintPath>$(ManagedDir)InitArgs.Netcode.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.Netcode.Runtime"><HintPath>$(ManagedDir)Unity.Netcode.Runtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Newtonsoft.Json"><HintPath>$(ManagedDir)Newtonsoft.Json.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="ECM2"><HintPath>$(ManagedDir)ECM2.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="MultiplayerTemplate.Core"><HintPath>$(ManagedDir)MultiplayerTemplate.Core.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="MultiplayerTemplate.Player"><HintPath>$(ManagedDir)MultiplayerTemplate.Player.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="MultiplayerTemplate.Bootstrap"><HintPath>$(ManagedDir)MultiplayerTemplate.Bootstrap.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+
+  <!-- Copy into the game after the build: dotnet build -c Release -p:DeployToGame=true -->
+  <Target Name="DeployToGame" AfterTargets="Build" Condition="'$(DeployToGame)' == 'true'">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginDir)" />
+  </Target>
+
+</Project>
