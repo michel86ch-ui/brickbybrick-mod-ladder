@@ -13,7 +13,7 @@ world and save slot, with or without other mods.
 
 ![A long ladder leaning against the platform, the scaffold of a building behind it](screenshots/ladder-2.jpg)
 
-*Extended to its full length.*
+*A long ladder against the platform, the scaffold behind it.*
 
 ![The ladder against a wall being built of 2x1 blocks, under a scaffold, with the message shown after setting it up](screenshots/ladder-3.jpg)
 
