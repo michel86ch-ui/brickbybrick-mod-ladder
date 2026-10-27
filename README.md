@@ -38,7 +38,7 @@ The ZIP contains BepInEx 5.4.23.5 (unmodified, MIT license) and the mod.
 - **L** at the wall under the crosshair: the ladder leans against it at 75° and extends to about 0.9 m over the wall's top
   edge (up to 24 m). The wall may be up to 24 m away, also one set back above a lower roof: the ladder stands further
   out and reaches it from below; if a lower wall or roof is in the way, it says so. Pressing L at another wall moves it
-  there.
+  there. If the ladder is too long, **Page Down** shortens it; too short, **Page Up** makes it longer.
 - **L** while looking at the ladder: take it down.
 - **Page Up / Page Down**: make it 0.5 m longer or shorter.
 - **Climb**: walk into the ladder facing the wall. Forward climbs up while you face the wall (or look along it) and
