@@ -57,8 +57,8 @@ namespace Ladder
                 "Looking at a wall: set up the ladder there (it moves if it stands elsewhere). Looking at the ladder: take it down.");
             LongerKey = Config.Bind("Keys", "Longer", new KeyboardShortcut(KeyCode.PageUp), "Extend the ladder by 0.5 m.");
             ShorterKey = Config.Bind("Keys", "Shorter", new KeyboardShortcut(KeyCode.PageDown), "Retract the ladder by 0.5 m.");
-            MaxLength = Config.Bind("Ladder", "MaxLength", 12f,
-                new ConfigDescription("Longest the ladder extends (meters).", new AcceptableValueRange<float>(3f, 30f)));
+            MaxLength = Config.Bind("Ladder", "MaxLength", 24f,
+                new ConfigDescription("Longest the ladder extends (meters); walls are aimed at as far away.", new AcceptableValueRange<float>(3f, 30f)));
             ClimbSpeed = Config.Bind("Ladder", "ClimbSpeed", 2.5f,
                 new ConfigDescription("Climbing speed (meters per second).", new AcceptableValueRange<float>(0.5f, 8f)));
             Store = new LadderStore(System.IO.Path.Combine(Paths.ConfigPath, Guid + ".worlds.json"));

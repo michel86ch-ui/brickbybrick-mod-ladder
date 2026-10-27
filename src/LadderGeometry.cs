@@ -62,9 +62,10 @@ namespace Ladder
         internal static bool TryFromAim(Ray ray, Character character, float maxLength, out LadderSpec spec, out string why)
         {
             spec = null;
-            if (!Physics.Raycast(ray, out RaycastHit hit, 6f, Mask, QueryTriggerInteraction.Ignore))
+            // the wall under the crosshair as far as the ladder is long, also one set back above a lower roof
+            if (!Physics.Raycast(ray, out RaycastHit hit, maxLength, Mask, QueryTriggerInteraction.Ignore))
             {
-                why = "Look at a wall within 6 m to set up the ladder.";
+                why = $"Look at a wall within {maxLength:0} m to set up the ladder.";
                 return false;
             }
             var n = new Vector3(hit.normal.x, 0f, hit.normal.z);
@@ -98,9 +99,27 @@ namespace Ladder
                 }
                 spec.face[1] = ground.point.y;
             }
+            if (Blocked(spec))
+            {
+                why = "Something below is in the way of the ladder (a lower wall or roof): look at that one, or higher up.";
+                return false;
+            }
             FindExit(spec, character);
             why = null;
             return true;
+        }
+
+        /// <summary>Does anything stand between the ladder's foot and where it touches the wall? Checked 0.15 m in front of
+        /// the rails, from 0.5 m above the foot to 0.5 m below the contact (the ladder itself has no collider).</summary>
+        private static bool Blocked(LadderSpec spec)
+        {
+            Vector3 outward = -spec.Dir * 0.15f;
+            float contact = ContactHeight(spec);
+            Vector3 foot = Foot(spec);
+            Vector3 top = spec.Face - spec.Dir * RailGap + Vector3.up * (contact - spec.face[1]);
+            Vector3 along = (top - foot).normalized;
+            float span = Vector3.Distance(foot, top);
+            return span > 1f && Physics.Linecast(foot + along * 0.5f + outward, top - along * 0.5f + outward, Mask, QueryTriggerInteraction.Ignore);
         }
 
         /// <summary>The same ladder at another length (it slides along the wall, its angle stays).</summary>
@@ -111,6 +130,11 @@ namespace Ladder
                 || Mathf.Abs(ground.point.y - spec.face[1]) > 0.3f)
             {
                 why = "No floor for the ladder's foot at that length.";
+                return false;
+            }
+            if (Blocked(spec))
+            {
+                why = "At that length something below is in the way of the ladder.";
                 return false;
             }
             FindExit(spec, character);

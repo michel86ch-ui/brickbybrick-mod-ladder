@@ -35,8 +35,10 @@ The ZIP contains BepInEx 5.4.23.5 (unmodified, MIT license) and the mod.
 
 ## How to use
 
-- **L** while looking at a wall: the ladder leans against it at 75° and extends to about 0.9 m over the wall's top edge
-  (up to 12 m). Pressing L at another wall moves it there.
+- **L** at the wall under the crosshair: the ladder leans against it at 75° and extends to about 0.9 m over the wall's top
+  edge (up to 24 m). The wall may be up to 24 m away, also one set back above a lower roof: the ladder stands further
+  out and reaches it from below; if a lower wall or roof is in the way, it says so. Pressing L at another wall moves it
+  there.
 - **L** while looking at the ladder: take it down.
 - **Page Up / Page Down**: make it 0.5 m longer or shorter.
 - **Climb**: walk into the ladder facing the wall. Forward climbs up while you face the wall (or look along it) and
@@ -50,7 +52,7 @@ The ZIP contains BepInEx 5.4.23.5 (unmodified, MIT license) and the mod.
 - The ladder stays where you left it, per world, in `BepInEx\config\michel.brickbybrick.ladder.worlds.json`. The game's
   save is not changed; a new world in the same slot starts without a ladder.
 - The ladder has no collider: it blocks neither bricks nor the mobile scaffold.
-- Keys, `MaxLength` (3–30 m, default 12) and `ClimbSpeed` (default 2.5 m/s) are in the settings file.
+- Keys, `MaxLength` (3–30 m, default 24, also how far away a wall may be) and `ClimbSpeed` (default 2.5 m/s) are in the settings file.
 
 ## Building
 
