@@ -21,7 +21,7 @@ world and save slot, with or without other mods.
 
 ## Install
 
-1. Download **[ladder-mod.zip](https://github.com/michel86ch-ui/brickbybrick-mod-ladder/raw/main/ladder-mod.zip)**.
+1. Download **[ladder-mod.zip](https://github.com/michel86ch-ui/brickbybrick-mod-ladder/raw/main/ladder-mod.zip)**. Tested with the game update of 9 November 2026.
 2. Unzip everything into the game folder, so that `winhttp.dll` sits next to `BrickByBrick.exe`
    (Steam: right-click the game > Manage > Browse local files). BepInEx already installed (e.g. with
    [Extra Buildings](https://github.com/michel86ch-ui/brickbybrick-mod),
